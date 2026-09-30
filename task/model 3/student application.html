@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+ <html>
+ <head> <title> Student Application Form</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #e8f0fe;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+    }
+
+    .container {
+        width: 600px;
+        background-color: white;
+        border: 3px solid #1a4d8f;
+        border-radius: 12px;
+        padding: 25px;
+        box-shadow: 0 5px 15px gray;
+    }
+
+    h1 {
+        text-align: center;
+        color: #1a4d8f;
+        margin-bottom: 25px;
+    }
+
+    fieldset {
+        border: 1px solid #999;
+        margin-bottom: 20px;
+        padding: 15px;
+    }
+
+    legend {
+        font-weight: bold;
+        color: #1a4d8f;
+    }
+
+    label {
+        display: inline-block;
+        width: 160px;
+        margin-bottom: 12px;
+    }
+
+    input,
+    select,
+    textarea {
+        width: 280px;
+        padding: 8px;
+        box-sizing: border-box;
+    }
+
+    input[type="radio"] {
+        width: auto;
+    }
+
+    textarea {
+        height: 70px;
+        vertical-align: top;
+    }
+
+    .buttons {
+        text-align: center;
+    }
+
+    button {
+        padding: 10px 25px;
+        margin: 5px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    .submit {
+        background-color: #1a4d8f;
+        color: white;
+    }
+
+    .clear {
+        background-color: #777;
+        color: white;
+    }
+
+    #message {
+        text-align: center;
+        color: green;
+    }
+</style>
+
+</head> <body> <div class="container">
+<h1>Student Application Form</h1>
+
+<form id="applicationForm">
+
+    <fieldset>
+        <legend>Personal Details</legend>
+
+        <label>Full Name:</label>
+        <input type="text" id="name" required>
+        <br><br>
+
+        <label>Date of Birth:</label>
+        <input type="date" id="dob" required>
+        <br><br>
+
+        <label>Gender:</label>
+        <input type="radio" name="gender" value="Male" required> Male
+        <input type="radio" name="gender" value="Female"> Female
+        <input type="radio" name="gender" value="Other"> Other
+        <br><br>
+
+        <label>Email:</label>
+        <input type="email" id="email" required>
+        <br><br>
+
+        <label>Mobile Number:</label>
+        <input type="tel" id="mobile" required>
+    </fieldset>
+
+    <fieldset>
+        <legend>Academic Details</legend>
+
+        <label>10th Percentage:</label>
+        <input type="number" id="tenth" min="0" max="100" required>
+        <br><br>
+
+        <label>12th Percentage:</label>
+        <input type="number" id="twelfth" min="0" max="100" required>
+        <br><br>
+
+        <label>Engineering Degrees:</label>
+        <select id="Degrees" required>
+            <option value="">Select Branch</option>
+            <option value="BE">BE</option>
+            <option value="BTECH">BTECH</option>
+            </select>
+        <br><br>
+
+
+        <label>Engineering Branch:</label>
+        <select id="branch" required>
+            <option value="">Select Branch</option>
+            <option value="Computer Science Engineering">CSE</option>
+            <option value="Information Technology">IT</option>
+            <option value="Electronics and Communication Engineering">ECE</option>
+            <option value="Electrical and Electronics Engineering">EEE</option>
+            <option value="Mechanical Engineering">Mechanical</option>
+            <option value="Civil Engineering">Civil</option>
+        </select>
+        <br><br>
+
+        
+
+
+        <label>Admission Year:</label>
+        <select id="year" required>
+            <option value="">Select Year</option>
+            <option value="2026">2026</option>
+            <option value="2027">2027</option>
+            <option value="2028">2028</option>
+        </select>
+    </fieldset>
+
+    <fieldset>
+        <legend>Address Details</legend>
+
+        <label>Address:</label>
+        <textarea id="address" required></textarea>
+        <br><br>
+
+        <label>City:</label>
+        <input type="text" id="city" required>
+        <br><br>
+
+        <label>State:</label>
+        <input type="text" id="state" required>
+        <br><br>
+
+        <label>Pincode:</label>
+        <input type="text" id="pincode" required>
+    </fieldset>
+
+    <div class="buttons">
+        <button type="submit" class="submit">Submit Application</button>
+        <button type="reset" class="clear">Clear</button>
+    </div>
+
+</form>
+
+<h3 id="message"></h3>
+
+</div> <script> const form = document.getElementById("applicationForm"); const message = document.getElementById("message"); form.addEventListener("submit", (event) => { event.preventDefault(); const name = document.getElementById("name").value; const branch = document.getElementById("branch").value; message.textContent = `Application submitted successfully! Welcome ${name}. Branch: ${branch}`; }); form.addEventListener("reset", () => { message.textContent
